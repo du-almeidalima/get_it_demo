@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it_demo/app/data/model/meme.dart';
 import 'package:get_it_demo/app/widgets/meme_card.dart';
 import 'package:get_it_demo/domain/meme.domain.dart';
-import 'package:get_it_demo/locator.dart';
+import '../../injection.dart';
 
 class HomePageView extends StatefulWidget {
   @override
@@ -13,11 +13,11 @@ class _HomePageViewState extends State<HomePageView> {
   Meme _displayedMeme;
 
   void _onNextMemeHandler() async {
-    // == PASSO 3: Pegar uma referência de uma dependência pelo seu Type ==
+    // == PASSO 8: Pegar uma referência de uma dependência pelo seu Type ==
     // Nesse caso pegando o que seria um caso de uso.
-    final fetchedMeme = await locator.get<MemeDomain>().getNextMeme();
+    final fetchedMeme = await getIt<MemeDomain>().getNextMeme();
 
-    // == PASSO 4: Chamar setState para atualizar a UI ==
+    // == PASSO 9: Chamar setState para atualizar a UI ==
     // GetIt não é uma ferramenta de gerenciamento de estado, que nem o provider, então
     // ele não atualiza o state automaticamente. mas ele pode ser usado em conjunto com
     // uma ferramenta de gerenciamento de estado para isso, como o provider mesmo.

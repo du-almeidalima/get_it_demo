@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get_it_demo/app/screens/home_screen.dart';
 
-import 'locator.dart';
+import 'injection.dart';
 
-// == PASSO 2: Executar a função que monta as instâncias do GetIt ==
-
+// == PASSO 2: Assim como no GetIt, executar a função que dará o Trigger no processo de settar as dependências ==
 void main() {
-  setupGetItLocator();
+  configureInjection(Env.dev);
   runApp(MyApp());
 }
 
