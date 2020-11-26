@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get_it_demo/app/screens/home_screen.dart';
 
-import 'injection.dart';
+import 'injector.dart';
 
-// == PASSO 2: Assim como no GetIt, executar a função que dará o Trigger no processo de settar as dependências ==
 void main() {
-  configureInjection(Env.dev);
+  Injector.setup(Env.prod);
   runApp(MyApp());
 }
 
